@@ -1,7 +1,7 @@
 package org.skypro.courseworkJC.controller;
 
-import org.skypro.courseworkJC.service.JavaQuestionService;
 import org.skypro.courseworkJC.model.Question;
+import org.skypro.courseworkJC.service.JavaQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,13 +20,13 @@ public class JavaQuestionController {
     @PostMapping("/add")
     public String addQuestion(@RequestParam String question, @RequestParam String answer) {
         javaQuestionService.addQuestion(question, answer);
-        return "Question added successfully!";
+        return "Вопрос добавлен!";
     }
 
     @DeleteMapping("/remove")
     public String removeQuestion(@RequestParam String question, @RequestParam String answer) {
         javaQuestionService.removeQuestion(question, answer);
-        return "Question removed successfully!";
+        return "Вопрос удален!";
     }
 
     @GetMapping
