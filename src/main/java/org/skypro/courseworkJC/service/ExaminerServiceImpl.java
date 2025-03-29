@@ -23,7 +23,7 @@ public class ExaminerServiceImpl implements ExaminerService {
     public List<Question> getQuestions(int amount) {
         List<Question> allQuestions = javaQuestionService.findAllQuestions();
         if (amount > allQuestions.size()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Not enough questions available");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Количество вопросов превышает доступное");
         }
 
         Set<Question> uniqueQuestions = new HashSet<>();

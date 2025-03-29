@@ -1,6 +1,5 @@
-package org.skypro.courseworkJC.controller;
+package org.skypro.courseworkJC.model;
 
-import org.skypro.courseworkJC.model.Question;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class QuestionController {
     @PostMapping("/add")
     public String addQuestion(@RequestParam String question, @RequestParam String answer) {
         questions.add(new Question(question, answer));
-        return "Question added successfully!";
+        return "Ваш вопрос добавлен!";
     }
 
     @GetMapping("/all")

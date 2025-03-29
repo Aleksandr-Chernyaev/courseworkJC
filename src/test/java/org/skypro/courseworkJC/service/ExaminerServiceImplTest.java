@@ -21,8 +21,8 @@ class ExaminerServiceImplTest {
 
     @Test
     void testGetQuestions() {
-        javaQuestionService.addQuestion("What is Java?", "A programming language.");
-        javaQuestionService.addQuestion("What is Spring?", "A framework.");
+        javaQuestionService.addQuestion("Что такое Java?", "Это язык программирования.");
+        javaQuestionService.addQuestion("Что такое Spring?", "Это фреймворк.");
 
         List<Question> questions = examinerService.getQuestions(1);
         assertEquals(1, questions.size());
@@ -30,12 +30,12 @@ class ExaminerServiceImplTest {
 
     @Test
     void testGetQuestionsNotEnough() {
-        javaQuestionService.addQuestion("What is Java?", "A programming language.");
+        javaQuestionService.addQuestion("Что такое Java?", "Это язык программирования.");
 
         Exception exception = assertThrows(ResponseStatusException.class, () -> {
             examinerService.getQuestions(2);
         });
 
-        assertEquals("404 NOT_FOUND \"Not enough questions available\"", exception.getMessage());
+        assertEquals("400 BAD_REQUEST \"Not enough questions available\"", exception.getMessage());
     }
 }

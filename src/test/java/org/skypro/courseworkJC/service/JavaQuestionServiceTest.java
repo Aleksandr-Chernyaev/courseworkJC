@@ -2,9 +2,8 @@ package org.skypro.courseworkJC.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.skypro.courseworkJC.model.Question;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class JavaQuestionServiceTest {
     private JavaQuestionService javaQuestionService;
@@ -16,16 +15,16 @@ class JavaQuestionServiceTest {
 
     @Test
     void testAddAndFindAllQuestions() {
-        javaQuestionService.addQuestion("What is Java?", "A programming language.");
-        javaQuestionService.addQuestion("What is Spring?", "A framework.");
+        javaQuestionService.addQuestion("Что такое Java?", "Это язык программирования.");
+        javaQuestionService.addQuestion("Что такое Spring Boot?", "Spring Boot — это полезный проект, целью которого является упрощение создания приложений на основе Spring.");
 
         assertEquals(2, javaQuestionService.findAllQuestions().size());
     }
 
     @Test
     void testRemoveQuestion() {
-        javaQuestionService.addQuestion("What is Java?", "A programming language.");
-        javaQuestionService.removeQuestion("What is Java?", "A programming language.");
+        javaQuestionService.addQuestion("Что такое Java?", "Это язык программирования.");
+        javaQuestionService.removeQuestion("Что такое Spring Boot?", "Spring Boot — это полезный проект, целью которого является упрощение создания приложений на основе Spring.");
 
         assertEquals(0, javaQuestionService.findAllQuestions().size());
     }

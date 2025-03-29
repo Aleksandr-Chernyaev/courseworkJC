@@ -29,7 +29,7 @@ public class JavaQuestionService implements QuestionService {
 
     public Question getRandomQuestion() {
         if (questions.isEmpty()) {
-            return null; // или выбросьте исключение
+            return null;
         }
         int index = random.nextInt(questions.size());
         return questions.get(index);
